@@ -1,1 +1,61 @@
 # css-task-tooltip
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Tooltip</title>
+  <style>
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .tooltip-container .tooltip-text {
+      visibility: hidden;
+      width: 140px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      border-radius: 6px;
+
+      /* Position the tooltip */
+      position: absolute;
+      bottom: 125%; /* Position above the element */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+
+      /* Tooltip arrow */
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Optional: Tooltip arrow */
+    .tooltip-container .tooltip-text::after {
+      content: '';
+      position: absolute;
+      top: 100%; /* Arrow at the bottom of tooltip */
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tooltip-container">
+    Hover over me
+    <div class="tooltip-text">This is a tooltip message!</div>
+  </div>
+
+</body>
+</html>
